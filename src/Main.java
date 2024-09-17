@@ -27,6 +27,8 @@ public class Main {
 
             arqTarefas.delete(t2.getId());
 
+            System.out.println(arqTarefas.read(id1));
+
         } catch (Exception e) {
             e.printStackTrace();
         }
