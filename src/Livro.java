@@ -7,15 +7,17 @@ public class Livro implements Registro{
     private int id;
     private String titulo;
     private int ISBN;
+    private int idCategoria;
 
     public Livro() {
-        this(0, "", 0);
+        this(0, "", 0, 0);
     }
 
-    public Livro(int id, String titulo, int iSBN) {
+    public Livro(int id, String titulo, int iSBN, int idCategoria) {
         this.id = id;
         this.titulo = titulo;
-        ISBN = iSBN;
+        this.ISBN = iSBN;
+        this.idCategoria = idCategoria;
     }
 
     public int getId() {
@@ -36,6 +38,12 @@ public class Livro implements Registro{
     public void setISBN(int iSBN) {
         ISBN = iSBN;
     }
+    public int getIdCategoria() {
+        return idCategoria;
+    }
+    public void setIdCategoria(int idCategoria) {
+        this.idCategoria = idCategoria;
+    }
     
     @Override
     public byte[] toByteArray() throws Exception {
@@ -44,6 +52,7 @@ public class Livro implements Registro{
         dos.writeInt(id);
         dos.writeUTF(titulo);
         dos.writeInt(ISBN);
+        dos.writeInt(idCategoria);
         return baos.toByteArray();
     }
 
@@ -54,10 +63,11 @@ public class Livro implements Registro{
         setId(dis.readInt());
         setTitulo(dis.readUTF());
         setISBN(dis.readInt());
+        setIdCategoria(dis.readInt());
     }
 
     @Override
     public String toString() {
-        return "Livro [ISBN=" + ISBN + ", id=" + id + ", titulo=" + titulo + "]";
+        return "Livro [ISBN=" + ISBN + ", id=" + id + ", titulo=" + titulo + ", idCategoria=" + idCategoria + "]";
     }
 }
