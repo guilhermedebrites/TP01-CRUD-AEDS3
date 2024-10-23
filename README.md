@@ -1,7 +1,7 @@
 # TP01-CRUD
 Alunos: Guilherme Gomes de Brites, Nalberth Henrique Vieira, Mateus Nunes Belo, Joao Lucas Curi
 
-Construtor (Arquivo)
+Construtor (arquivos.Arquivo)
 
 Inicializa o arquivo de dados e o índice direto.
 Se o arquivo não tiver um cabeçalho, cria um com o valor 0 (último ID).

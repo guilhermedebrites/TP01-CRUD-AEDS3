@@ -1,31 +1,30 @@
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
+package app.arquivos;
+import java.io.*;
 import java.lang.reflect.Constructor;
 
-public class ParIsbnId implements RegistroHashExtensivel<ParIsbnId> {
+import app.registros.RegistroHashExtensivel;
+
+public class ParIDEndereco implements RegistroHashExtensivel<ParIDEndereco> {
 
 	private int id;
-	private String ISBN;
+	private long endereco;
 	final private int TAMANHO = 12;
 
-	public ParIsbnId(int i, int id2) {
-		this(-1, "");
+	public ParIDEndereco() {
+		this(-1, -1);
 	}
 
-	public ParIsbnId(int i, String e) {
+	public ParIDEndereco(int i, long e) {
 		this.id = i;
-		this.ISBN = e;
+		this.endereco = e;
 	}
 
 	public int getId() {
 		return id;
 	}
 
-	public String getISBN() {
-		return ISBN;
+	public long getEndereco() {
+		return endereco;
 	}
 
 	public int hashCode() {
@@ -36,15 +35,15 @@ public class ParIsbnId implements RegistroHashExtensivel<ParIsbnId> {
 		return TAMANHO;
 	}
 
-	public static Constructor<ParIsbnId> getConstructor() throws NoSuchMethodException, SecurityException {
-		return ParIsbnId.class.getConstructor();
+	public static Constructor<ParIDEndereco> getConstructor() throws NoSuchMethodException, SecurityException {
+		return ParIDEndereco.class.getConstructor();
 	}
 
 	public byte[] toByteArray() throws IOException {
 		ByteArrayOutputStream ba_out = new ByteArrayOutputStream();
 		DataOutputStream dos = new DataOutputStream(ba_out);
 		dos.writeInt(this.id);
-        dos.writeUTF(this.ISBN);
+		dos.writeLong(this.endereco);
 		return ba_out.toByteArray();
 	}
 
@@ -52,6 +51,6 @@ public class ParIsbnId implements RegistroHashExtensivel<ParIsbnId> {
 		ByteArrayInputStream ba_in = new ByteArrayInputStream(ba);
 		DataInputStream dis = new DataInputStream(ba_in);
 		this.id = dis.readInt();
-        this.ISBN = dis.readUTF();
+		this.endereco = dis.readLong();
 	}
 }

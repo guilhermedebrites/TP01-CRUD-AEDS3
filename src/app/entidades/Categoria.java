@@ -1,10 +1,9 @@
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
+package app.entidades;
+import java.io.*;
 
-public class Categoria implements RegistroArvoreBMais<Categoria> {
+import app.registros.Registro;
+
+public class Categoria implements Registro {
     private int id;
     private String nome;
 
@@ -34,11 +33,6 @@ public class Categoria implements RegistroArvoreBMais<Categoria> {
     }
 
     @Override
-    public short size() {
-        return (short) (4 + nome.length() * 2);
-    }
-
-    @Override
     public byte[] toByteArray() throws IOException {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         DataOutputStream dos = new DataOutputStream(baos);
@@ -57,15 +51,5 @@ public class Categoria implements RegistroArvoreBMais<Categoria> {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    public int compareTo(Categoria categoria) {
-        return id - categoria.getId();
-    }
-
-    @Override
-    public Categoria clone() {
-        return new Categoria(id, nome);
     }
 }

@@ -1,3 +1,4 @@
+package app.main;
 /*********
  * ARVORE B+ 
  * 
@@ -13,8 +14,10 @@
  */
 
 import java.io.*;
-import java.util.ArrayList;
 import java.lang.reflect.Constructor;
+import java.util.ArrayList;
+
+import app.registros.RegistroArvoreBMais;
 
 // Esta versão da árvore funciona apenas como um conjunto de par de chaves.
 // A primeira chave pode repetir na árvore, mas não o par de chaves, 
@@ -26,7 +29,7 @@ public class ArvoreBMais<T extends RegistroArvoreBMais<T>> {
     private int ordem; // Número máximo de filhos que uma página pode conter
     private int maxElementos; // Variável igual a ordem - 1 para facilitar a clareza do código
     private int maxFilhos; // Variável igual a ordem para facilitar a clareza do código
-    private RandomAccessFile arquivo; // Arquivo em que a árvore será armazenada
+    private RandomAccessFile arquivo; // arquivos.Arquivo em que a árvore será armazenada
     private String nomeArquivo;
     private Constructor<T> construtor;
 
