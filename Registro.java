@@ -1,4 +1,3 @@
-package app.registros;
 public interface Registro {
     public byte[] toByteArray() throws Exception;
     public void fromByteArray(byte[] ba) throws Exception;

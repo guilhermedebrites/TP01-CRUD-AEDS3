@@ -1,15 +1,11 @@
-package app.arquivos;
-
+import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.lang.reflect.Constructor;
 
-import app.main.HashExtensivel;
-import app.registros.Registro;
-
 public class Arquivo<T extends Registro> {
-    final int header = 4;
-    RandomAccessFile file;
-    String fileName = "";
+    private static int header = 4;
+    private RandomAccessFile file;
+    private String fileName = "";
     Constructor<T> constructor;
     HashExtensivel<ParIDEndereco> indiceDireto;
 

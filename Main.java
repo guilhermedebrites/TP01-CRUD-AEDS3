@@ -1,8 +1,4 @@
-package app.main;
-import java.io.File;
-
-import app.arquivos.Arquivo;
-import app.entidades.Tarefa;
+import java.io.*;
 
 public class Main {
     private static Arquivo<Tarefa> arqTarefas;
